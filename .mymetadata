@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-module
+  type="EJB"
+  name="ejb3sample"
+  id="myeclipse.1282587279685"
+  j2ee-spec="5.0"
+  archive="ejb3sample.jar" />
+

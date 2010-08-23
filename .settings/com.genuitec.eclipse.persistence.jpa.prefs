@@ -1,0 +1,6 @@
+#Mon Aug 23 14:14:40 EDT 2010
+connectionInfoProperty=com.sybase.jdbc2.jdbc.SybDataSource
+eclipse.preferences.version=1
+enableAnalysisProperty=true
+newCatalogProperty=auctions
+schemaProperty=auctions
