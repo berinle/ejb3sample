@@ -29,6 +29,12 @@ public class SillyClient {
 		silly.queryDatabase();
 		System.out.println("done querying database!");
 		
+		System.out.println(silly.queryForAuction(1));
+		System.out.println(silly.queryForAuction(222));
+		
+		//sample to trigger ERROR
+		//System.out.println(silly.queryForAuctionUsingSingleResult(222));
+		
 		//Running it via ACC within the container
 		/*silly.someMethod();
 		System.out.println("done!");*/

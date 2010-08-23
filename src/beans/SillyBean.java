@@ -13,13 +13,32 @@ public class SillyBean implements Silly {
 	private EntityManager em;
 	
 	public void someMethod() {
-		System.out.println(" some method called. ");
+		System.out.println("some method called. ");
 	}
 
 	public void queryDatabase() {
-		System.out.println(" querying database ...");
+		System.out.println("*querying database ...");
 		List list = em.createQuery("select a from Auction a").getResultList();
 		System.out.println("found " + list.size() + " auctions");
+	}
+	
+	public Auction queryForAuction(long id){
+		System.out.println("queryForAuction() called.");
+		List list =  em.createQuery("select a from Auction a where a.id = ?1")
+		.setParameter(1, id)
+		.getResultList();
+		
+		Auction auction = (Auction) (list.isEmpty()? null: list.get(0));
+		
+		System.out.println("found " + auction);
+		return auction;
+	}
+	
+	public Auction queryForAuctionUsingSingleResult(long id){
+		Auction auction  = (Auction) em.createQuery("select a from Auction a where a.id = ?1")
+		.setParameter(1, id)
+		.getSingleResult();
+		return auction;
 	}
 
 }
