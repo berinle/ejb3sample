@@ -17,9 +17,13 @@ public class SillyBean implements Silly {
 	}
 
 	public void queryDatabase() {
+		//try{
 		System.out.println("*querying database ...");
 		List list = em.createQuery("select a from Auction a").getResultList();
 		System.out.println("found " + list.size() + " auctions");
+		//}catch(Exception e){
+		//	e.printStackTrace();
+		//}
 	}
 	
 	public Auction queryForAuction(long id){

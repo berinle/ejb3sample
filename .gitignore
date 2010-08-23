@@ -1,2 +1,7 @@
+#ignore gradle build artifacts
+.gradle/
+build/
+
+#ignore eclipse generated artifacts
 classes/
 *.class

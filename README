@@ -1,1 +1,24 @@
 This is a sample project with using ejb3
+
+To Use hibernate has a provider, do the following...
+
+1) Add this to your persistence unit (in persistence.xml)
+
+<provider>org.hibernate.ejb.HibernatePersistence</provider>
+
+2) Set a transaction manager to the server you are running against since
+hibernate queries this
+
+For WLS server
+
+<properties>
+	<property name="hibernate.transaction.factory_class" value="org.hibernate.transaction.JTATransactionFactory"/>
+ 	<property name="hibernate.transaction.manager_lookup_class" value="org.hibernate.transaction.WeblogicTransactionManagerLookup"/>
+</properties>
+
+3) For WLS, add antlr.jar contained in your version of Hibernate to the
+PRE_CLASSPATH has this causes conflict with what comes with weblogic server.
+
+If not, you are going to be getting the all to familiar error
+
+java.lang.IllegalArgumentException: org.hibernate.QueryException: ClassNotFoundException: org.hibernate.hql.ast.HqlToken [select a from beans.Auction a]

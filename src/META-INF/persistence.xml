@@ -5,8 +5,12 @@
     http://java.sun.com/xml/ns/persistence/persistence_1_0.xsd" version="1.0">
     
 	<persistence-unit name="ejb3samplePU" transaction-type="JTA">
-		<!-- provider>org.hibernate.ejb.HibernatePersistence</provider-->
+		<provider>org.hibernate.ejb.HibernatePersistence</provider>		
   		<jta-data-source>jdbc.auctions</jta-data-source>
+  		<properties>
+  			<property name="hibernate.transaction.factory_class" value="org.hibernate.transaction.JTATransactionFactory"/>
+  			<property name="hibernate.transaction.manager_lookup_class" value="org.hibernate.transaction.WeblogicTransactionManagerLookup"/>
+  		</properties>
 	</persistence-unit>
   
 </persistence>
